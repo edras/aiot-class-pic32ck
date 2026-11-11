@@ -273,18 +273,30 @@ You need three things: the T1S network adapter, Mosquitto and Node-RED.
    npm install -g node-red
    ```
 
-3. Start Node-RED and point it at this repository:
+3. Install the dashboard dependencies and start Node-RED using this
+   repository as its user directory:
 
    ```powershell
    cd <path-to-this-repo>
    npm install
-   node-red -s settings.js flows.json
    ```
 
-   Or import `flows.json` manually from the Node-RED editor
-   (http://127.0.0.1:1880).
+   Then start Node-RED:
 
-4. The dashboard is available at **http://127.0.0.1:1880/dashboard**.
+   ```powershell
+   node-red --userDir .
+   ```
+
+   Node-RED reads `package.json` and automatically loads `flows.json`.
+
+4. Open the editor at **http://127.0.0.1:1880** and the dashboard at
+   **http://127.0.0.1:1880/dashboard**.
+
+> **Alternative — import manually:** if you prefer to keep your default
+> Node-RED user directory (`~/.node-red`), start `node-red` normally, open
+> the editor, use **Menu > Import** and paste the contents of `flows.json`.
+> You will also need to install the dependencies listed in `package.json`
+> via **Menu > Manage palette**.
 
 ### Node-RED Project
 
@@ -292,8 +304,7 @@ The repository root is a Node-RED project: `flows.json` contains the dashboard
 flows and `package.json` lists its dependencies
 (`@flowfuse/node-red-dashboard`, `node-red-contrib-ui-led`, etc.).
 
-The flow tabs included are: **Setup & Readme**, **Smart_Sensor**, **Smart_IO**,
-**Smart_HMI**, **Control** and **Smart_Motor**.
+The flow tabs included are: **Setup & Readme**, **Smart_Sensor** and **Demo**.
 
 ---
 

@@ -32,13 +32,15 @@ node_modules
 # OSX
 .DS_Store
 
-# Node-RED
-.config.json
-.config.json.backup
+# Node-RED runtime (created by --userDir .)
+.config*.json
+.config*.json.backup
 .sessions.json
 .flows.json.backup
 .flows_cred.json.backup
 flows_cred.json
+node_modules/
+lib/
 
 .generated_files/
 nbproject/
