@@ -1,0 +1,73 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Note: Properties here can override MPLAB project settings
+      // PIC32CK is a TrustZone-M two-image target: the secure image
+      // (AIoT_PIC32CK_Secure) carries the BootROM vectors at 0x08000000, all
+      // four configuration/fuse pages at 0x0a000000-0x0a00a123, the secure
+      // trampoline at 0x0c000000 and the NSC veneers at 0x0c0fffc0, while
+      // demo_pic32ck.elf covers only the non-secure application at 0x0c100000+.
+      // Programming either image alone erases the other, and the config pages
+      // read back as 0 after erase, leaving the BootROM with no valid boot
+      // configuration. Always program the merged unified image, which the
+      // demo_pic32ck build produces via the merge_loadable_files target.
+      "name": "Debug AIoT_Demo: demo_pic32ck (unified)",
+      "type": "mplab-core-da",
+      "request": "launch",
+      "project": "AIoT_Demo",
+      "configuration": "demo_pic32ck",
+      "stopOnEntry": true,
+      "preLaunchTask": "AIoT_Demo: demo_pic32ck - Build",
+      "program": "${workspaceFolder}/out/AIoT_Demo/demo_pic32ck-unified.hex",
+      "extraDebugFiles": [
+        "${workspaceFolder}/out/AIoT_Demo/demo_pic32ck.elf",
+        "${workspaceFolder}/out/AIoT_PIC32CK_Secure/pic32ck_secure.elf"
+      ]
+    },
+    {
+      // Note: Properties here can override MPLAB project settings
+      // See the note on the Debug configuration above: program the unified
+      // image, never demo_pic32ck.elf on its own.
+      "name": "Run AIoT_Demo: demo_pic32ck (unified)",
+      "type": "mplab-core-da",
+      "request": "launch",
+      "project": "AIoT_Demo",
+      "configuration": "demo_pic32ck",
+      "preLaunchTask": "AIoT_Demo: demo_pic32ck - Build",
+      "program": "${workspaceFolder}/out/AIoT_Demo/demo_pic32ck-unified.hex",
+      "noDebug": true
+    },
+    {
+      // PIC32CK TrustZone dual-image: always program the merged unified hex.
+      // See the AIoT_Demo notes above for why individual ELFs must not be
+      // programmed on their own.
+      "name": "Debug AIoT_Smart_Sensor: smart_sensor_pic32ck (unified)",
+      "type": "mplab-core-da",
+      "request": "launch",
+      "project": "AIoT_Smart_Sensor",
+      "configuration": "smart_sensor_pic32ck",
+      "stopOnEntry": true,
+      "preLaunchTask": "AIoT_Smart_Sensor: smart_sensor_pic32ck - Build",
+      "program": "${workspaceFolder}/out/AIoT_Smart_Sensor/smart_sensor_pic32ck-unified.hex",
+      "extraDebugFiles": [
+        "${workspaceFolder}/out/AIoT_Smart_Sensor/smart_sensor_pic32ck.elf",
+        "${workspaceFolder}/out/AIoT_PIC32CK_Secure/pic32ck_secure.elf"
+      ]
+    },
+    {
+      // See the Debug configuration above for TrustZone notes.
+      "name": "Run AIoT_Smart_Sensor: smart_sensor_pic32ck (unified)",
+      "type": "mplab-core-da",
+      "request": "launch",
+      "project": "AIoT_Smart_Sensor",
+      "configuration": "smart_sensor_pic32ck",
+      "preLaunchTask": "AIoT_Smart_Sensor: smart_sensor_pic32ck - Build",
+      "program": "${workspaceFolder}/out/AIoT_Smart_Sensor/smart_sensor_pic32ck-unified.hex",
+      "noDebug": true
+    }
+  ]
+}

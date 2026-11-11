@@ -1,0 +1,47 @@
+{
+  "microchip.buildPath": "${workspaceFolder}/_b",
+  "microchip.cmakePath": "${workspaceFolder}/_c",
+  "files.associations": {
+    "*.h": "c",
+    "*.c": "c",
+    "*.ld": "linkerscript",
+    "definitions.h": "c",
+    "plib_*.h": "c"
+  },
+  "files.exclude": {
+    "**/*.o": true,
+    "**/*.d": true,
+    "**/dist": false,
+    "**/build": false
+  },
+  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+  "makefile.makefilePath": "${workspaceFolder}/firmware/AIoT_Demo_SAME51.X/Makefile",
+  "cortex-debug.armToolchainPath": "C:/Program Files/Microchip/xc32/v4.60/bin",
+  "cortex-debug.openocdPath": "openocd",
+  "cortex-debug.JLinkGDBServerPath": "JLinkGDBServerCL",
+  "editor.formatOnSave": false,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "[c]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/*.o": true
+  },
+  "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\AIoT_Demo\\demo_same51",
+  "mplab.clangd.path": "c:\\Program Files\\Microchip\\xc32\\v5.00\\bin\\xc32-clangd.exe",
+  "makefile.configureOnOpen": false,
+  "mplab.clangd.arguments": [
+    "--header-insertion=never"
+  ],
+  "memory-inspector.debugTypes": [
+    "arm-debugger",
+    "embedded-debug",
+    "gdb",
+    "mplab-core-da"
+  ]
+}

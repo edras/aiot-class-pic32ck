@@ -1,0 +1,187 @@
+{
+    "version": "1.9",
+    "importedFrom": "firmware\\libs\\libtc6.X",
+    "configurations": [
+        {
+            "name": "release_pic32ck",
+            "id": "conf7",
+            "device": "PIC32CK2051SG01064",
+            "imageType": "library",
+            "imagePath": "./out/libtc6/release_pic32ck.a",
+            "packs": [
+                {
+                    "name": "PIC32CK-SG_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.8.265"
+                },
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.3.0"
+                }
+            ],
+            "fileSet": "Project files",
+            "toolchain": "release_pic32ck-XC32",
+            "includeLegacyMacros": true
+        },
+        {
+            "name": "debug_pic32ck",
+            "id": "conf8",
+            "device": "PIC32CK2051SG01064",
+            "imageType": "library",
+            "imagePath": "./out/libtc6/debug_pic32ck.a",
+            "packs": [
+                {
+                    "name": "PIC32CK-SG_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.8.265"
+                },
+                {
+                    "name": "CMSIS",
+                    "vendor": "ARM",
+                    "version": "6.3.0"
+                }
+            ],
+            "fileSet": "Project files",
+            "toolchain": "debug_pic32ck-XC32",
+            "includeLegacyMacros": true
+        }
+    ],
+    "propertyGroups": [
+        {
+            "name": "release_pic32ck-XC32",
+            "extend": "XC32",
+            "provider": "microchip.toolchains:xc32@5.00",
+            "properties": {
+                "compiler.enable-symbols": false,
+                "compiler.extra-include-directories": "firmware/libs/libtc6.X/cfg;firmware/libs/libtc6.X/inc;firmware/libs/libtc6.X",
+                "compiler.isolate-each-function": false,
+                "compiler.optimization-level": "-O1",
+                "compiler.post-instruction-scheduling": "schedule-insns2",
+                "compiler.pre-instruction-scheduling": "schedule-insns",
+                "compiler.preprocessor-macros": "NDEBUG",
+                "compiler++.enable-symbols": false,
+                "compiler++.optimization-level": "-O3",
+                "linker.optimization-level": "-O3",
+                "compiler.additional-options": [
+                    "-pedantic"
+                ]
+            }
+        },
+        {
+            "name": "XC32",
+            "type": "toolchain",
+            "provider": "microchip.toolchains:xc32@5.00",
+            "properties": {
+                "compiler.additional-warnings": true,
+                "compiler.addresss-attribute-use": false,
+                "compiler.enable-app-io": false,
+                "compiler.enable-omit-frame-pointer": false,
+                "compiler.enable-unroll-loops": false,
+                "compiler.exclude-floating-point": false,
+                "compiler.generate-16-bit-code": false,
+                "compiler.generate-micro-compressed-code": false,
+                "compiler.make-warnings-into-errors": false,
+                "compiler.place-data-into-section": true,
+                "compiler.strict-ansi": false,
+                "compiler.support-ansi": false,
+                "compiler.use-cci": false,
+                "compiler.use-iar": false,
+                "compiler.use-indirect-calls": false,
+                "compiler++.additional-warnings": false,
+                "compiler++.addresss-attribute-use": false,
+                "compiler++.check-new": false,
+                "compiler++.eh-specs": true,
+                "compiler++.enable-app-io": false,
+                "compiler++.enable-omit-frame-pointer": false,
+                "compiler++.enable-unroll-loops": false,
+                "compiler++.exceptions": true,
+                "compiler++.exclude-floating-point": false,
+                "compiler++.extra-include-directories": "firmware/libs/libtc6.X",
+                "compiler++.generate-16-bit-code": false,
+                "compiler++.generate-micro-compressed-code": false,
+                "compiler++.isolate-each-function": false,
+                "compiler++.make-warnings-into-errors": false,
+                "compiler++.place-data-into-section": false,
+                "compiler++.post-instruction-scheduling": "default",
+                "compiler++.pre-instruction-scheduling": "default",
+                "compiler++.rtti": true,
+                "compiler++.strict-ansi": false,
+                "compiler++.use-cci": false,
+                "compiler++.use-iar": false,
+                "compiler++.use-indirect-calls": false,
+                "assembler.enable-symbols": true,
+                "assembler.exclude-floating-point-library": false,
+                "assembler.expand-macros": false,
+                "assembler.extra-include-directories-for-assembler": "firmware/libs/libtc6.X",
+                "assembler.extra-include-directories-for-preprocessor": "firmware/libs/libtc6.X",
+                "assembler.false-conditionals": false,
+                "assembler.generate-16-bit-code": false,
+                "assembler.generate-micro-compressed-code": false,
+                "assembler.keep-locals": false,
+                "assembler.list-assembly": false,
+                "assembler.list-source": false,
+                "assembler.list-symbols": false,
+                "assembler.oXC32asm-list-to-file": false,
+                "assembler.omit-debug-dirs": false,
+                "assembler.omit-forms": false,
+                "archiver.additional-options-chop-files": false,
+                "linker.additional-options-use-response-files": false,
+                "linker.additional-options-write-sla": false,
+                "linker.allocate-dinit": false,
+                "linker.code-dinit": false,
+                "linker.enable-check-sections": false,
+                "linker.exclude-floating-point-library": false,
+                "linker.exclude-standard-libraries": false,
+                "linker.extra-lib-directories": "firmware/libs/libtc6.X",
+                "linker.fill-flash-options-how": "0",
+                "linker.fill-flash-options-inc-const": "1",
+                "linker.fill-flash-options-what": "0",
+                "linker.generate-16-bit-code": false,
+                "linker.generate-cross-reference-file": false,
+                "linker.generate-micro-compressed-code": false,
+                "linker.no-device-startup-code": false,
+                "linker.no-startup-files": false,
+                "linker.remove-unused-sections": false,
+                "linker.report-memory-usage": true,
+                "linker.warn-section-align": false,
+                "coverage.stack-guidance": false,
+                "global.legacy-libc": false,
+                "global.mstacktcm": false,
+                "global.omit-pack-options": "1",
+                "global.relaxed-math": false,
+                "global.save-temps": false,
+                "global.wpo-lto": false
+            }
+        },
+        {
+            "name": "debug_pic32ck-XC32",
+            "extend": "XC32",
+            "provider": "microchip.toolchains:xc32@5.00",
+            "properties": {
+                "compiler++.enable-symbols": true,
+                "compiler.additional-options": [
+                    "-pedantic"
+                ],
+                "compiler.enable-symbols": true,
+                "compiler.extra-include-directories": "firmware/libs/libtc6.X/cfg;firmware/libs/libtc6.X/inc;firmware/libs/libtc6.X",
+                "compiler.isolate-each-function": true,
+                "compiler.post-instruction-scheduling": "default",
+                "compiler.pre-instruction-scheduling": "default",
+                "compiler.preprocessor-macros": "DEBUG",
+                "global.common-include-directories": "firmware/libtc6/inc"
+            }
+        }
+    ],
+    "fileSets": [
+        {
+            "name": "Project files",
+            "files": [
+                "firmware/libs/libtc6.X/Makefile",
+                "firmware/libs/libtc6.X/inc/*",
+                "firmware/libs/libtc6.X/src/*.c"
+            ],
+            "encoding": "ISO-8859-1"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,Open Drain,Slew Rate Control
+1,PA00,INT3,GPIO,Digital,Out,Low,,,No,FAST
+2,PA01,RST3,GPIO,Digital,Out,Low,,,No,FAST
+3,PA02,,Available,,,,,,No,FAST
+4,PA03,,Available,,,,,,No,FAST
+8,PA04,,Available,,,,,,No,FAST
+9,PA05,AN2,GPIO,Digital,Out,Low,,,No,FAST
+10,PA06,PWM3,GPIO,Digital,Out,Low,,,No,FAST
+11,PA07,INT1,EIC_EXTINT7,Digital,High Impedance,n/a,No,No,No,FAST
+12,PA08,,Available,,,,,,No,FAST
+13,PA09,AN3,GPIO,Digital,Out,Low,,,No,FAST
+14,PA10,,Available,,,,,,No,FAST
+15,PA11,,SERCOM5_PAD0,Digital,High Impedance,n/a,No,No,No,FAST
+16,PA12,,SERCOM5_PAD1,Digital,High Impedance,n/a,No,No,No,FAST
+17,PB00,RST1,GPIO,Digital,Out,Low,,,No,FAST
+18,PB01,PWM2,GPIO,Digital,Out,Low,,,No,FAST
+20,PB02,,Available,,,,,,No,FAST
+21,PB03,,Available,,,,,,No,FAST
+23,PB04,,Available,,,,,,No,FAST
+24,PB05,,Available,,,,,,No,FAST
+25,PB06,CS3,GPIO,Digital,Out,Low,,,No,FAST
+29,PB07,,Available,,,,,,No,FAST
+30,PB08,CS2,GPIO,Digital,Out,High,,,No,FAST
+31,PB09,MOSI,SERCOM4_PAD0,Digital,High Impedance,n/a,No,No,No,FAST
+32,PB10,SCK,SERCOM4_PAD1,Digital,High Impedance,n/a,No,No,No,FAST
+33,PC00,CS1,GPIO,Digital,Out,High,,,No,FAST
+34,PC01,MISO,SERCOM4_PAD3,Digital,High Impedance,n/a,No,No,No,FAST
+35,PC02,RST2,GPIO,Digital,Out,Low,,,No,FAST
+36,PC03,,Available,,,,,,No,FAST
+36,PC03,EN2,GPIO,Digital,Out,Low,,,No,FAST
+40,PC05,,Available,,,,,,No,FAST
+41,PC06,,Available,,,,,,No,FAST
+42,PC07,,Available,,,,,,No,FAST
+44,PC09,,Available,,,,,,No,FAST
+45,PC10,,SERCOM2_PAD1,Digital,High Impedance,n/a,No,No,No,FAST
+46,PC11,,SERCOM2_PAD0,Digital,High Impedance,n/a,No,No,No,FAST
+47,PC12,,Available,,,,,,No,FAST
+48,PC13,,Available,,,,,,No,FAST
+51,PD00,,Available,,,,,,No,FAST
+52,PD01,,Available,,,,,,No,FAST
+53,PD02,BUTTON,GPIO,Digital,In,n/a,No,No,No,FAST
+54,PD03,,Available,,,,,,No,FAST
+55,PD04,,Available,,,,,,No,FAST
+56,PD05,LED,GPIO,Digital,Out,Low,,,No,FAST
+57,PD06,,SERCOM0_PAD0,Digital,High Impedance,n/a,No,No,No,FAST
+58,PD07,,SERCOM0_PAD1,Digital,High Impedance,n/a,No,No,No,FAST
+61,PD08,,SERCOM1_PAD0,Digital,High Impedance,n/a,No,No,No,FAST
+62,PD09,,SERCOM1_PAD1,Digital,High Impedance,n/a,No,No,No,FAST
+63,PD10,,Available,,,,,,No,FAST
+64,PD11,,Available,,,,,,No,FAST

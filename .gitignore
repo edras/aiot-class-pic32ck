@@ -1,0 +1,70 @@
+# VSCode - ignore user-specific files, keep project configs
+.vscode/c_cpp_properties.json
+.vscode/*.log
+
+# MPLabX ignore files
+.generated_files
+dist/
+debug/
+build/
+private/
+node_modules/
+**/nbproject/Makefile-*
+**/nbproject/Package-*
+defmplabxtrace*
+queuelogs/
+overlay-content/
+
+# MPLabX don't ignore harmony files
+!**/system/debug
+
+## node-red ignore files
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# OSX
+.DS_Store
+
+# Node-RED
+.config.json
+.config.json.backup
+.sessions.json
+.flows.json.backup
+.flows_cred.json.backup
+flows_cred.json
+
+.generated_files/
+nbproject/
+Makefile*
+Package-*
+_build/
+!cmake/**/user.cmake
+cmake/**/.generated/*
+cmake/**/CMake*
+out/
+
+# AI agent / tool generated files
+.claude/
+.superpowers/
+superpowers/
+docs/superpowers/
+.ruff_cache/
+.cursor/
+.aider*
+.codex/
+.gemini/
+.opencode/
+CLAUDE.md
+AGENTS.md
+context.md
+
+# Python caches
+__pycache__/
+*.pyc

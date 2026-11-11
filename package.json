@@ -1,0 +1,19 @@
+{
+    "name": "AIoT-dashboard",
+    "description": "Microchip AIoT Blue Wedge — Node-RED Dashboard",
+    "version": "1.0.0",
+    "dependencies": {
+        "@flowfuse/node-red-dashboard": "*",
+        "node-red-contrib-ui-led": "*",
+        "node-red-contrib-simpletime": "*",
+        "node-red-node-serialport": "*",
+        "node-red-node-smooth": "*",
+        "node-red-contrib-boolean-logic-ultimate": "*"
+    },
+    "node-red": {
+        "settings": {
+            "flowFile": "flows.json",
+            "credentialsFile": "flows_cred.json"
+        }
+    }
+}

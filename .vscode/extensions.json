@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-vscode.cpptools",
+    "marus25.cortex-debug",
+    "ms-vscode.makefile-tools",
+    "dan-c-underwood.arm",
+    "zixuanwang.linkerscript",
+    "trond-snekvik.gnu-mapfiles",
+    "webfreak.debug"
+  ]
+}
