@@ -18,7 +18,7 @@
 - [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
 - [Network and MQTT](#network-and-mqtt)
-- [Node-RED Dashboard](#node-red-dashboard)
+- [Gateway PC Setup (Windows)](#gateway-pc-setup-windows)
 - [Firmware Architecture](#firmware-architecture)
 - [Serial Terminal](#serial-terminal)
 - [Further Documentation](#further-documentation)
@@ -73,10 +73,21 @@ published.
 | MIKROE-5761 (BME280) | Temperature, humidity, pressure |
 | [OLED C Click (MIKROE-1585)](https://www.mikroe.com/oled-c-click) | Status display / alarm |
 
+### USB-to-T1S Adapter
+
+| Device | Part |
+|--------|------|
+| [EVB-LAN8670-USB (EV62B92A)](https://www.microchip.com/en-us/development-tool/EV62B92A) | USB to 10BASE-T1S bridge |
+
+This evaluation board plugs into the student's PC via USB and appears as a
+**CDC-NCM Ethernet adapter** (supported natively by Windows 10/11). It bridges
+the PC into the 10BASE-T1S multidrop segment so the PC can run the MQTT broker
+and Node-RED dashboard.
+
 ### Network
 
-A gateway device at **192.168.0.5** bridges the 10BASE-T1S segment to the
-regular Ethernet network where the MQTT broker and the Node-RED dashboard run.
+The EVB-LAN8670-USB adapter gives the PC a network interface on the T1S
+segment. The PC acts as the gateway and MQTT broker at **192.168.0.5**.
 
 ---
 
@@ -199,6 +210,7 @@ Topics follow the pattern `<board>/<module>/<parameter>`, for example
 | `sen5x` | `temperature`, `moisture`, `voc`, `nox`, `pm1`, `pm25`, `pm4`, `pm10` | UP |
 | `mikroe5908` (APC1) | `temperature`, `moisture`, `voc`, `co2`, `aqi`, `pm1`, `pm25`, `pm10` | UP |
 | `mikroe5761` (BME280) | `temperature`, `moisture`, `pressure` | UP |
+| `mikroe2801` (VCNL4200, Demo only) | `distance`, `light` | UP |
 
 ### Testing with Mosquitto
 
@@ -212,11 +224,73 @@ mosquitto_pub -h 192.168.0.5 -t "smart_sensor/curiosity/led0" -m "true"
 
 ---
 
-## Node-RED Dashboard
+## Gateway PC Setup (Windows)
 
-The repository root is a **Node-RED project**: `flows.json` contains the
-dashboard flows and `package.json` lists its dependencies. Open it with
-Node-RED in Projects mode, or import `flows.json` manually.
+The student's PC acts as the network gateway, MQTT broker and dashboard host.
+You need three things: the T1S network adapter, Mosquitto and Node-RED.
+
+### 1. EVB-LAN8670-USB — T1S Network Adapter
+
+1. Plug the EVB-LAN8670-USB into a USB port. Windows 10/11 recognises it
+   automatically as a CDC-NCM Ethernet adapter.
+2. Open **Settings > Network & Internet > Ethernet** and find the new adapter.
+3. Set a static IP address:
+   - IP address: **192.168.0.5**
+   - Subnet mask: **255.255.255.0**
+   - Gateway: leave empty
+   - DNS: leave empty
+
+### 2. Mosquitto — MQTT Broker
+
+1. Download and install Mosquitto from
+   [mosquitto.org/download](https://mosquitto.org/download/).
+2. Edit the Mosquitto configuration (`mosquitto.conf`) to allow anonymous
+   access on the T1S interface:
+
+   ```
+   listener 1883 192.168.0.5
+   allow_anonymous true
+   ```
+
+3. Start Mosquitto:
+
+   ```powershell
+   mosquitto -c "C:\Program Files\mosquitto\mosquitto.conf" -v
+   ```
+
+4. Verify with a quick subscribe (in a second terminal):
+
+   ```powershell
+   mosquitto_sub -h 192.168.0.5 -t "#" -v
+   ```
+
+### 3. Node-RED — Dashboard
+
+1. Install [Node.js LTS](https://nodejs.org/) (>= 18).
+2. Install Node-RED globally:
+
+   ```powershell
+   npm install -g node-red
+   ```
+
+3. Start Node-RED and point it at this repository:
+
+   ```powershell
+   cd <path-to-this-repo>
+   npm install
+   node-red -s settings.js flows.json
+   ```
+
+   Or import `flows.json` manually from the Node-RED editor
+   (http://127.0.0.1:1880).
+
+4. The dashboard is available at **http://127.0.0.1:1880/dashboard**.
+
+### Node-RED Project
+
+The repository root is a Node-RED project: `flows.json` contains the dashboard
+flows and `package.json` lists its dependencies
+(`@flowfuse/node-red-dashboard`, `node-red-contrib-ui-led`, etc.).
 
 The flow tabs included are: **Setup & Readme**, **Smart_Sensor**, **Smart_IO**,
 **Smart_HMI**, **Control** and **Smart_Motor**.
