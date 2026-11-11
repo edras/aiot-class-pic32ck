@@ -2,17 +2,17 @@
 
 manifest_file_version: 1.0.0
 project: AIoT_PIC32CK_default
-creation_date: 2026-09-14T09:47:31.322+02:00[Europe/Prague]
+creation_date: 2026-11-11T16:30:53.905+01:00[Europe/Berlin]
 operating_system: Windows 11
 mcc_mode: VSCodePlugin
 mcc_mode_version: Unknown
 device_name: PIC32CK2051SG01064
 compiler: N/A
 mcc_version: 5.7.1
-mcc_core_version: 5.9.1
-content_manager_version: 7.0.0
+mcc_core_version: 5.9.2
+content_manager_version: 7.0.1
 is_mcc_offline: false
-is_using_prerelease_versions: false
+is_using_prerelease_versions: true
 mcc_content_registries: https://registry.npmjs.org/
 device_library: {library_class: com.microchip.mcc.harmony.Harmony3Library, name: Bundled,
   version: Bundled}

@@ -4,13 +4,13 @@
 
 
 project: AIoT_PIC32CK_default
-creation_date: 2026-09-14T09:47:31.379+02:00[Europe/Prague]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2026-11-11T16:30:53.918+01:00[Europe/Berlin]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: VSCodePlugin            # [IDE|Standalone|Headless]
 mcc_version: v5.7.1
-mcc_core_version: v5.9.1
+mcc_core_version: v5.9.2
 mplabx_version: NA        # if MPLAB X plugin only
-harmony_version: 1.7.2
+harmony_version: 1.7.3
 compiler: NA
 
 modules:

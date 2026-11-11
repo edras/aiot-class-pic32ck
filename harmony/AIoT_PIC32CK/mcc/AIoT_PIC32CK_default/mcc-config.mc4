@@ -1,6 +1,6 @@
 configVersion: 1.0.0
-coreVersion: 5.9.1
-spaHostVersion: 1.3.0
+coreVersion: 5.9.2
+spaHostVersion: 1.3.1
 device: PIC32CK2051SG01064
 deviceLibrary: {}
 groupModules: []
@@ -49,7 +49,7 @@ generatedFileHashHistoryMap:
 - file: ..\non_secure\src\config\default\peripheral\port\plib_port.c
   hash: c5272f06ad2d2ad55fd87b491edb908257f7ea7edcb721940d922743d3b41da6
 - file: ..\non_secure\src\config\default\peripheral\port\plib_port.h
-  hash: a7668bff9634a08d6ece0ae2babf034e6d59e532dc1556669c98b8af48498beb
+  hash: b57718a98977bed52d45768c30b46a26b758c77acbbdc7285b156a0f32f445ab
 - file: ..\non_secure\src\config\default\peripheral\sercom\i2c_master\plib_sercom0_i2c_master.c
   hash: 10d2692a3f8e452452672a9d72b1f187351a90fd81ca68b8e1592ae353c623e7
 - file: ..\non_secure\src\config\default\peripheral\sercom\i2c_master\plib_sercom0_i2c_master.h
@@ -81,7 +81,7 @@ generatedFileHashHistoryMap:
 - file: ..\non_secure\src\config\default\peripheral\systick\plib_systick.h
   hash: ddc7dc76fd118f821a3a6d877bf11a6b885d17722b1adac001e63fd5c5f341bd
 - file: ..\non_secure\src\config\default\pin_configurations.csv
-  hash: 640cb56f9938abbdc8ed06c5ae7e34c92cc95327e4f94540072041f355452e06
+  hash: 1e3acaa661633a613c30cd5f61e242bb3a39a4cbeb251c5ac6d178662147a12e
 - file: ..\non_secure\src\config\default\startup_xc32.c
   hash: fa0fe6e15490a487621b9e24735e44179a3e39c35b4f46d3f78be8fd8370433e
 - file: ..\non_secure\src\config\default\stdio\xc32_monitor.c
@@ -373,7 +373,7 @@ generatedFileHashHistoryMap:
 - file: ..\secure\src\config\default\peripheral\pm\plib_pm.h
   hash: 37890f6427dd8228e6743897f657f0d22cd7f8ea500c2b6e1bca643804728eb4
 - file: ..\secure\src\config\default\peripheral\port\plib_port.c
-  hash: a11471a2b1f70a2f2c17d8fa90cacda18a0a9793342eb27f62da4b503e6c5992
+  hash: 00c00311913ba66df628c17eb107849479b85d0a4345e4ce5e7b1ffed39eefe3
 - file: ..\secure\src\config\default\peripheral\port\plib_port.h
   hash: 61258ff2545cff803fd35787cc871542bca7a5c5830fd79b68a34cd73dd62850
 - file: ..\secure\src\config\default\peripheral\systick\plib_systick.c
@@ -387,7 +387,6 @@ generatedFileHashHistoryMap:
 - file: ..\secure\src\config\default\toolchain_specifics.h
   hash: 6fc0551b0fa3362678b3d7a227386fafa343140d31e4da3ad4af972e61cd0acb
 - file: ..\secure\src\main.c
-  hash: 7be8ab649686cd053ca563ee934cc028f754860e3e3f4ec7c78b7553fb0804bb
 - file: ..\secure\src\packs\CMSIS\CMSIS\Core\Include\cachel1_armv7.h
   hash: 6cdb5b324f2fd1bb5b2f47298ba6e6777e735d7cad3bb8d942cd36e2c6e65328
 - file: ..\secure\src\packs\CMSIS\CMSIS\Core\Include\cmsis_armcc.h

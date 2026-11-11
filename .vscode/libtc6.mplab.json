@@ -7,7 +7,7 @@
             "id": "conf7",
             "device": "PIC32CK2051SG01064",
             "imageType": "library",
-            "imagePath": "./out/libtc6/release_pic32ck.a",
+            "imagePath": "./out/libtc6/release_pic32ck.elf",
             "packs": [
                 {
                     "name": "PIC32CK-SG_DFP",
@@ -21,7 +21,7 @@
                 }
             ],
             "fileSet": "Project files",
-            "toolchain": "release_pic32ck-XC32",
+            "toolchain": "release_pic32ck-toolchain",
             "includeLegacyMacros": true
         },
         {
@@ -29,7 +29,7 @@
             "id": "conf8",
             "device": "PIC32CK2051SG01064",
             "imageType": "library",
-            "imagePath": "./out/libtc6/debug_pic32ck.a",
+            "imagePath": "./out/libtc6/debug_pic32ck.elf",
             "packs": [
                 {
                     "name": "PIC32CK-SG_DFP",
@@ -43,19 +43,34 @@
                 }
             ],
             "fileSet": "Project files",
-            "toolchain": "debug_pic32ck-XC32",
+            "toolchain": "debug_pic32ck-toolchain",
             "includeLegacyMacros": true
         }
     ],
     "propertyGroups": [
         {
-            "name": "release_pic32ck-XC32",
+            "name": "debug_pic32ck-toolchain",
             "extend": "XC32",
-            "provider": "microchip.toolchains:xc32@5.00",
+            "provider": "microchip.toolchains:xc32@6.00",
+            "properties": {
+                "compiler.additional-options": [
+                    "-pedantic"
+                ],
+                "compiler.extra-include-directories": "firmware/libs/libtc6.X/cfg;firmware/libs/libtc6.X/inc;firmware/libs/libtc6.X",
+                "compiler.isolate-each-function": true,
+                "compiler.post-instruction-scheduling": "default",
+                "compiler.pre-instruction-scheduling": "default",
+                "compiler.preprocessor-macros": "DEBUG",
+                "global.common-include-directories": "firmware/libtc6/inc"
+            }
+        },
+        {
+            "name": "release_pic32ck-toolchain",
+            "extend": "XC32",
+            "provider": "microchip.toolchains:xc32@6.00",
             "properties": {
                 "compiler.enable-symbols": false,
                 "compiler.extra-include-directories": "firmware/libs/libtc6.X/cfg;firmware/libs/libtc6.X/inc;firmware/libs/libtc6.X",
-                "compiler.isolate-each-function": false,
                 "compiler.optimization-level": "-O1",
                 "compiler.post-instruction-scheduling": "schedule-insns2",
                 "compiler.pre-instruction-scheduling": "schedule-insns",
@@ -71,7 +86,7 @@
         {
             "name": "XC32",
             "type": "toolchain",
-            "provider": "microchip.toolchains:xc32@5.00",
+            "provider": "microchip.toolchains:xc32@6.00",
             "properties": {
                 "compiler.additional-warnings": true,
                 "compiler.addresss-attribute-use": false,
@@ -152,24 +167,6 @@
                 "global.relaxed-math": false,
                 "global.save-temps": false,
                 "global.wpo-lto": false
-            }
-        },
-        {
-            "name": "debug_pic32ck-XC32",
-            "extend": "XC32",
-            "provider": "microchip.toolchains:xc32@5.00",
-            "properties": {
-                "compiler++.enable-symbols": true,
-                "compiler.additional-options": [
-                    "-pedantic"
-                ],
-                "compiler.enable-symbols": true,
-                "compiler.extra-include-directories": "firmware/libs/libtc6.X/cfg;firmware/libs/libtc6.X/inc;firmware/libs/libtc6.X",
-                "compiler.isolate-each-function": true,
-                "compiler.post-instruction-scheduling": "default",
-                "compiler.pre-instruction-scheduling": "default",
-                "compiler.preprocessor-macros": "DEBUG",
-                "global.common-include-directories": "firmware/libtc6/inc"
             }
         }
     ],

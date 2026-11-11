@@ -34,7 +34,7 @@
         {
             "name": "smart_sensor_pic32ck-XC32",
             "type": "toolchain",
-            "provider": "microchip.toolchains:xc32@5.00",
+            "provider": "microchip.toolchains:xc32@6.00",
             "properties": {
                 "compiler.isolate-each-function": true,
                 "compiler.optimization-level": "-O1",
@@ -46,20 +46,20 @@
                 "compiler++.extra-include-directories": [
                     "harmony/AIoT_PIC32CK/non_secure/src",
                     "harmony/AIoT_PIC32CK/non_secure/src/config/default",
-                    "harmony/AIoT_PIC32CK/non_secure/src/packs/PIC32CK2051SG01064_DFP",
                     "harmony/AIoT_PIC32CK/non_secure/src/packs/CMSIS",
-                    "harmony/AIoT_PIC32CK/non_secure/src/packs/CMSIS/CMSIS/Core/Include"
+                    "harmony/AIoT_PIC32CK/non_secure/src/packs/CMSIS/CMSIS/Core/Include",
+                    "harmony/AIoT_PIC32CK/non_secure/src/packs/PIC32CK2051SG01064_DFP"
                 ],
                 "linker.no-device-startup-code": "true",
                 "compiler.extra-include-directories": [
                     "firmware/src",
-                    "firmware/src/hal/smart_sensor_pic32ck",
                     "firmware/src/hal/common_pic32ck",
+                    "firmware/src/hal/smart_sensor_pic32ck",
                     "harmony/AIoT_PIC32CK/non_secure/src",
                     "harmony/AIoT_PIC32CK/non_secure/src/config/default",
-                    "harmony/AIoT_PIC32CK/non_secure/src/packs/PIC32CK2051SG01064_DFP",
                     "harmony/AIoT_PIC32CK/non_secure/src/packs/CMSIS",
-                    "harmony/AIoT_PIC32CK/non_secure/src/packs/CMSIS/CMSIS/Core/Include"
+                    "harmony/AIoT_PIC32CK/non_secure/src/packs/CMSIS/CMSIS/Core/Include",
+                    "harmony/AIoT_PIC32CK/non_secure/src/packs/PIC32CK2051SG01064_DFP"
                 ],
                 "global.common-include-directories": "firmware/src;firmware/src/hal/smart_sensor_pic32ck;firmware/src/hal/common_pic32ck;firmware/src/T1S/inc",
                 "C32Global.mstacktcm": "false",
@@ -68,10 +68,16 @@
                     "out/libtc6/release_pic32ck.a"
                 ],
                 "linker.additional-options": [
-                    "-DNONSECURE",
-                    "-DANS_SIZE=0x100000",
-                    "-DRNS_SIZE=0x40000",
-                    "-DVECTOR_REGION=rom"
+                    "-l:aiot-class-pic32ck_sg_veneer.lib"
+                ],
+                "linker.preprocessor-macros": [
+                    "ANS_SIZE=0x100000",
+                    "NONSECURE",
+                    "RNS_SIZE=0x40000",
+                    "VECTOR_REGION=CODE_REGION"
+                ],
+                "linker.extra-lib-directories": [
+                    "./"
                 ]
             }
         },
@@ -88,7 +94,7 @@
                 {
                     "include": "**/*",
                     "exclude": [
-                        "**/@(build|_build|out|cmake|.vscode|AIoT_SAMD21|AIoT_SAME51|harmony/AIoT_PIC32CK/secure|firmware/libs/libtc6.X|firmware/libs/liblwip.X|firmware/src/hal|firmware/src/sensirion|firmware/predictive_maintenance_mc)/**/*",
+                        "**/@(build|_build|out|cmake|.vscode|AIoT_SAMD21|AIoT_SAME51|harmony/AIoT_PIC32CK/secure|firmware/libs/libtc6.X|firmware/libs/liblwip.X|firmware/src/hal|firmware/src/sensirion|node_modules)/**/*",
                         "harmony/AIoT_PIC32CK/non_secure/src/main.c"
                     ]
                 },

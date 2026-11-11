@@ -34,29 +34,29 @@
         {
             "name": "pic32ck_secure-XC32",
             "type": "toolchain",
-            "provider": "microchip.toolchains:xc32@5.00",
+            "provider": "microchip.toolchains:xc32@6.00",
             "properties": {
                 "compiler.isolate-each-function": true,
                 "compiler.optimization-level": "-O1",
                 "compiler.place-data-into-section": true,
-                "linker.heap-size": "16384",
+                "linker.heap-size": "512",
                 "linker.remove-unused-sections": true,
                 "compiler++.isolate-each-function": true,
                 "compiler++.optimization-level": "-O1",
                 "compiler++.extra-include-directories": [
                     "harmony/AIoT_PIC32CK/secure/src",
                     "harmony/AIoT_PIC32CK/secure/src/config/default",
-                    "harmony/AIoT_PIC32CK/secure/src/packs/PIC32CK2051SG01064_DFP",
                     "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS",
-                    "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include"
+                    "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include",
+                    "harmony/AIoT_PIC32CK/secure/src/packs/PIC32CK2051SG01064_DFP"
                 ],
                 "linker.no-device-startup-code": "true",
                 "compiler.extra-include-directories": [
                     "harmony/AIoT_PIC32CK/secure/src",
                     "harmony/AIoT_PIC32CK/secure/src/config/default",
-                    "harmony/AIoT_PIC32CK/secure/src/packs/PIC32CK2051SG01064_DFP",
                     "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS",
-                    "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include"
+                    "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include",
+                    "harmony/AIoT_PIC32CK/secure/src/packs/PIC32CK2051SG01064_DFP"
                 ],
                 "C32Global.mstacktcm": "false",
                 "compiler.additional-options": [
@@ -66,10 +66,17 @@
                     "-mcmse"
                 ],
                 "linker.additional-options": [
-                    "-DSECURE",
-                    "-DANS_SIZE=0x100000",
-                    "-DRNS_SIZE=0x40000",
-                    "-DANSC_SIZE=0x40"
+                    ",--cmse-implib",
+                    "--out-implib=aiot-class-pic32ck_sg_veneer.lib"
+                ],
+                "linker.preprocessor-macros": [
+                    "ANSC_SIZE=0x1000",
+                    "ANS_SIZE=0x100000",
+                    "BNSC_SIZE=0x0",
+                    "RNS_SIZE=0x40000",
+                    "RS_SIZE=0x40000",
+                    "SECURE",
+                    "VECTOR_REGION=boot_rom"
                 ]
             }
         },
@@ -83,7 +90,6 @@
         {
             "name": "default",
             "files": [
-                "harmony/AIoT_PIC32CK/secure/src/main.c",
                 "harmony/AIoT_PIC32CK/secure/src/trustZone/nonsecure_entry.c",
                 "harmony/AIoT_PIC32CK/secure/src/config/default/definitions.h",
                 "harmony/AIoT_PIC32CK/secure/src/config/default/device.h",
@@ -231,7 +237,8 @@
                 "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include/core_cm33.h",
                 "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include/mpu_armv8.h",
                 "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include/cachel1_armv7.h",
-                "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include/tz_context.h"
+                "harmony/AIoT_PIC32CK/secure/src/packs/CMSIS/CMSIS/Core/Include/tz_context.h",
+                "harmony/AIoT_PIC32CK/secure/src/main.c"
             ]
         }
     ]

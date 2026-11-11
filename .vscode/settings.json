@@ -33,7 +33,7 @@
     "**/*.o": true
   },
   "mplab.clangd.compileCommandsDir": "${workspaceFolder}/_build/AIoT_Demo/demo_pic32ck",
-  "mplab.clangd.path": "c:\\Program Files\\Microchip\\xc32\\v5.00\\bin\\xc32-clangd.exe",
+  "mplab.clangd.path": "c:\\Program Files\\Microchip\\xc32\\v6.00\\bin\\xc32-clangd.exe",
   "makefile.configureOnOpen": false,
   "mplab.clangd.arguments": [
     "--header-insertion=never"

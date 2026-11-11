@@ -51,6 +51,7 @@ _build/
 cmake/**/.generated/*
 cmake/**/CMake*
 out/
+aiot-class-pic32ck_sg_veneer.lib
 
 # AI agent / tool generated files
 .claude/

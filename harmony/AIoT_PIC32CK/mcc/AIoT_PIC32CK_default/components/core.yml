@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: core
-coreVersion: 5.9.1
+coreVersion: 5.9.2
 device: PIC32CK2051SG01064
 library: []
 dependency:
@@ -2299,7 +2299,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'Out'
+            value: Out
           type: User
         type: Values
       type: String
@@ -2321,7 +2321,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'GPIO'
+            value: GPIO
           type: User
         type: Values
       type: String
@@ -2365,7 +2365,7 @@ data:
       children:
       - children:
         - attributes:
-            value: 'GPIO'
+            value: GPIO
           type: User
         type: Values
       type: String
@@ -2629,7 +2629,7 @@ data:
       children:
       - children:
         - attributes:
-            value: Out
+            value: ''
           type: User
         type: Values
       type: String
@@ -2662,7 +2662,7 @@ data:
       children:
       - children:
         - attributes:
-            value: ''
+            value: 'True'
           type: User
         type: Values
       type: String
@@ -4086,7 +4086,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x263'
+            value: '0x262'
           type: Dynamic
         type: Values
       type: String
@@ -4206,7 +4206,7 @@ data:
       - children:
         - attributes:
             id: core
-            value: '0x0'
+            value: '0x2'
           type: Dynamic
         type: Values
       type: String
@@ -7594,6 +7594,54 @@ data:
           type: Boolean
         type: Attributes
       type: File
+    XC32_HEAP_SIZE:
+      attributes:
+        id: XC32_HEAP_SIZE
+        label: Heap Size (bytes)
+      children:
+      - children:
+        - attributes:
+            value: '32456'
+          type: User
+        type: Values
+      type: Integer
+    MAIN_C:
+      attributes:
+        id: MAIN_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SEC_MAIN_C:
+      attributes:
+        id: SEC_MAIN_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    CoreMainFile:
+      attributes:
+        id: CoreMainFile
+        label: Generate Main Source File
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
   userData:
     children:
     - attributes:
