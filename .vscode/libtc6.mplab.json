@@ -26,10 +26,10 @@
         },
         {
             "name": "debug_pic32ck",
-            "id": "conf8",
+            "id": "",
             "device": "PIC32CK2051SG01064",
             "imageType": "library",
-            "imagePath": "./out/libtc6/debug_pic32ck.elf",
+            "imagePath": "./out/libtc6/debug_pic32ck.a",
             "packs": [
                 {
                     "name": "PIC32CK-SG_DFP",

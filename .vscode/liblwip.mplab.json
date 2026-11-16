@@ -7,7 +7,7 @@
             "id": "",
             "device": "PIC32CK2051SG01064",
             "imageType": "library",
-            "imagePath": "./out/liblwip/release_pic32ck.elf",
+            "imagePath": "./out/liblwip/release_pic32ck.a",
             "packs": [
                 {
                     "name": "PIC32CK-SG_DFP",
